@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>高级查询</title>
+</head>
+<body>
+    <div align="center">
+        <h3>你可以在任意关键字进行指定查询</h3>
+
+        <form method = "post" action="/senior">
+            <table>
+                <tbody>
+                    <tr>
+                        <td>姓名<td>
+                        <td>
+                            <input type="text" name="username" placeholder="用户名" /><br>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>密码<td>
+                        <td>
+                            <input type="password" name="password" placeholder="请输入完整的查询密码"/><br>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>学校<td>
+                        <td>
+                            <input type="text" name="school" placeholder="school"/><br>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>电话<td>
+                        <td>
+                            <input type="text" name="phone" placeholder="请输入完整的查询电话"/><br>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>工作<td>
+                        <td>
+                            <input type="text" name="work" placeholder="工作地点"/><br>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>年龄<td>
+                        <td>
+                            <input type="text" name="age_begin" placeholder="年龄范围">~<input type="text" name = "age_end" placeholder="年龄范围"><br>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <input type="submit" value="确定查询"><br>
+        </form>
+    </div>
+</body>
+</html>

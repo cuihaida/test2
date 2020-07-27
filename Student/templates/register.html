@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>欢迎注册</title>
+    <style type="text/css">
+        form
+        {
+            width: 100%;
+            height: 700px;
+            margin-top: 0px;
+            background: #008B8B;
+        }
+        div
+        {
+            display: inline-block;
+            padding-top: 80px;
+            padding-right: 20px;
+        }
+        h2
+        {
+            font_size: 40px;
+            color: black;
+        }
+        #reg
+        {
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <form method = "post" action = "/register">
+        <center>
+            <div>
+                <h2>
+                    &emsp;&emsp;&emsp;&emsp;欢迎注册本系统
+                </h2>
+                <p>
+                    用户名：<input type = "text" name = "username"/>
+                </p>
+                <p>
+                    密&emsp;码：<input type = "password" name = "password"/>
+                </p>
+                <p>
+                    学&emsp;校：<input type = "text" name = "school"/>
+                </p>
+                <p>
+                    手机号：<input type = "text" name = "phone"/>
+                </p>
+                <p>
+                    工作地：<input type = "text" name = "work"/>
+                </p>
+                <p>
+                    年&emsp;龄：<input type = "text" name = "age"/>
+                </p>
+                <p>
+                    <input id = reg type = "submit" value = "立即注册" />
+                </p>
+                <p>
+                    已有账号？<a href = "/">请登录</a>
+                </p>
+            </div>
+        </center>
+    </form>
+</body>
+</html>

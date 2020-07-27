@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>欢迎登录</title>
+    <style type="text/css">
+        form
+        {
+            width: 100%;
+            height: 700px;
+            margin-top: 0px;
+            background: #008B8B;
+            font_size: large;
+        }
+        div
+        {
+            display: inline-block;
+            padding-top: 80px;
+            padding-right: 20px;
+        }
+        h2
+        {
+            font_size: 40px;
+            color: black;
+        }
+        #log
+        {
+            color: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <form method="post" name = "login" action="/login">
+        <center>
+            <div>
+                <h2>
+                    欢迎登录
+                </h2>
+                <img src="./static/test.jpg" />
+                <p>
+                    用户名：<input type="text" name = "username" placeholder="请输入用户名"/>
+                </p>
+                <p>
+                    密&emsp;码：<input type="password" name = "password" placeholder="请输入密码">
+                </p>
+                <p>
+                    <input id = log type="submit" value="登录">
+                </p>
+                <p>
+                    <!-- 转到注册界面 -->
+                    还没有账号？<a href="/reg">立即注册</a>
+                </p>
+            </div>
+        </center>
+    </form>
+</body>
+</html>

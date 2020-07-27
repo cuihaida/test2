@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>欢迎</title>
+<!--    <script src="static/watch.js"></script>-->
+
+    <!--      下面是表格的美化       -->
+    <style type="text/css">
+        table
+        {
+            width: 90%;
+            background: #ccc;
+            margin: 10px auto;
+            border-collapse: collapse;
+        }
+        th,td
+        {
+            height: 25px;
+            line-height: 25px;
+            text-align: center;
+            border: 1px solid #ccc;
+        }
+        th
+        {
+            background: #eee;
+            font-weight: normal;
+        }
+        tr
+        {
+            background: #fff;
+        }
+        tr:hover
+        {
+            background: #cc0;
+        }
+        td a
+        {
+            color: #06f;
+            text-decoration: none;
+        }
+        td a:hover
+        {
+            color: #06f;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body background="file:///F:\python_pycharm\Student\static\test.jpg">
+
+
+    <!--         下面是flash的消息提醒的处理      -->
+    <div class='container'>
+        <div class="row">
+            {% with messages = get_flashed_messages() %}
+                {% for message in messages %}
+                    {% if message %}
+                        <div class="alert alert-warning" role="alert">{{ message }}</div>
+                    {% endif %}
+                {% endfor %}
+            {% endwith %}
+            {% if form and form.errors %}
+                {% for key, error in form.errors.items() %}
+                    <div class="alert alert-warning" role="alert">{{ error }}</div>
+                {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+
+
+    <!--    查看按钮触发后得到的表单  -->
+    <div id = "div1" style="display: none">
+        <h3>查看结果</h3>
+        <div id = "table1"></div>
+    </div>
+
+    <!--          主体部分          -->
+    <div align="center">
+        <h1>
+            你好！{{name}}<font size="2"></font>
+        </h1>
+        <!-- 设置搜索框 -->
+        <form action="/search_table" method="post">
+            <input type="text" name="search_op" placeholder="请输入搜索的内容"/>
+            <input type="submit" value="搜索">&emsp;&emsp;&emsp;&emsp;<a href="/more_search">太模糊?试一下高级查询</a><br>
+        </form>
+
+
+
+        <a href="/add">添加学生</a>
+        <p></p>
+        <table border="1">
+            <!-- 表头 -->
+            <thead>
+                <th>序号&emsp;</th>
+                <th>姓名&emsp;</th>
+                <th>密码&emsp;</th>
+                <th>学校&emsp;</th>
+                <th>电话&emsp;</th>
+                <th>年龄&emsp;</th>
+                <th>查看&emsp;</th>
+                <th>操作&emsp;</th>
+            </thead>
+
+            <!-- 表身 -->
+            <tbody>
+                {% for student in students %}
+                <tr>
+                    <td>{{loop.index}}</td>
+                    <td>{{student.username}}</td>
+                    <td>{{student.password}}</td>
+                    <td>{{student.school}}</td>
+                    <td>{{student.phone}}</td>
+                    <td>{{student.age}}</td>
+                    <td><button onclick="my_func('{{ student.username }}','{{ student.school }}','{{ student.phone }}', '{{ student.work }}', '{{ student.age }}')">更多</button></td>
+                    <script>
+                    function my_func(name, school, phone, work, age)
+                    {
+                        var data = "";
+                        data += "<table>";
+
+                        data += "<thead>";
+                        data += "<th>姓名</th>";
+                        data += "<th>学校</th>";
+                        data += "<th>电话</th>";
+                        data += "<th>工作</th>";
+                        data += "<th>年龄</th>";
+                        data += "</thead>";
+
+                        data += "<tbody>";
+                        data += "<tr>";
+                        data += "<td>" + name + "</td>";
+                        data += "<td>" + school + "</td>";
+                        data += "<td>" + phone + "</td>";
+                        data += "<td>" + work + "</td>";
+                        data += "<td>" + age + "</td>";
+                        data += "</tr>";
+                        data += "</tbody>";
+
+
+                        data += "</table>"
+                        document.getElementById("div1").style.display = "block";
+                        document.getElementById("table1").innerHTML = data;
+                    }
+                    </script>
+                    <td><a href="/alter/{{ student.username }}">修改</a> | <a href="/delete/{{ student.username }}">删除</a> </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
